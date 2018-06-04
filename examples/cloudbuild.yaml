@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/[my-project-id]/zip-tool'
+  args: [ '-x', '/.git*', '-r', 'zipfile.zip', '.']
+  #dir: Upload to google cloud storage
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['-m', 'cp', 'zipfile.zip', 'gs://[BUCKET_NAME]'
